@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var ws = "ws://111.230.143.174:9005";
+        var wws = new WebSocket(ws);
+
+        wws.onopen = function (p1) {
+            wws.send("Hello World");
+            console.log("发送信息中")
+        };
+
+        wws.onmessage = function (p1) {
+            console.log(p1.data);
+        };
+
+        wws.onclose = function (p1) {
+            console.log("已关闭")
+        };
+
+        wws.onerror = function (p1) {
+            console.log("出错了")
+        }
+
+    </script>
+</body>
+</html>
